@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProjectOne:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjectOne_jar</output-path>
+    <root id="archive" name="ProjectOne.jar">
+      <element id="module-output" name="ProjectOne" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/dev/JDA-4.1.0_81-withDependencies.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
