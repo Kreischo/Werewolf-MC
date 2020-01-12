@@ -1,17 +1,14 @@
-package commands;
+package commandsMinecraft;
 
-import core.actions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.EventHandler;
 
-public class create implements CommandExecutor {
+public class unverifyCommand implements CommandExecutor {
 	@EventHandler
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (cmd.getName().equals("create")) {
 
-		}
 		return true;
 	}
 }

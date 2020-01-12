@@ -1,9 +1,8 @@
 package core;
 
-import commands.create;
-import commands.verify;
+import commandsMinecraft.*;
+import eventsMinecraft.playerChat;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
@@ -15,11 +14,10 @@ public class main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		logMessage("MC-Werewolf wurde geladen");
-		getServer().getPluginManager().registerEvents(new eventsMinecraft(), this);
-		this.getCommand("create").setExecutor(new create());
-		this.getCommand("verify").setExecutor(new verify());
+		initCommands();
+		initListeners();
 		try {
-			discordConnection();
+			discordConnection.discordConnection();
 		} catch (LoginException e) {
 			e.printStackTrace();
 		}
@@ -30,14 +28,25 @@ public class main extends JavaPlugin {
 		logMessage("MC-Werewolf wurde gestoppt");
 	}
 
-	public void discordConnection() throws LoginException {
-		api = new JDABuilder("")
-				.build();
-		api.addEventListener(new eventsDiscord());
-		logMessage("Discord wurde über Minecraft connected");
-	}
+
 
 	public void logMessage(String Message)    {
 		getLogger().info(Message);
+	}
+
+	public void initCommands()   {
+		this.getCommand("create").setExecutor(new createCommand());
+		this.getCommand("verify").setExecutor(new verifyCommand());
+		this.getCommand("close").setExecutor(new closeCommand());
+		this.getCommand("heal").setExecutor(new healCommand());
+		this.getCommand("kill").setExecutor(new killCommand());
+		this.getCommand("vote").setExecutor(new voteCommand());
+		this.getCommand("join").setExecutor(new joinCommand());
+		this.getCommand("unverify").setExecutor(new unverifyCommand());
+
+	}
+
+	public void initListeners() {
+		getServer().getPluginManager().registerEvents(new playerChat(), this);
 	}
 }

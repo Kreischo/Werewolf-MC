@@ -6,3 +6,24 @@ commands:
   create:
     description: erstellt das Spiel.
     usage: /create
+  verify:
+    description: Verbindet Discord mit Minecraft.
+    usage: /verify (ID)
+  unverify:
+    description: Löscht Verbindung zwischen Minecraft und Discord.
+    usage: /verify
+  join:
+    description: Tritt dem Spiel bei.
+    usage: /join
+  close:
+    description: beendet das Spiel.
+    usage: /close
+  vote:
+    description: Klagt einen Spieler ab oder stimmt für ihn ab.
+    usage: /vote (Spieler)
+  kill:
+    description: Tötet einen Spieler als toter Jäger, Hexe mit Todestrank oder einsamer Wolf.
+    usage: /kill (Spieler)
+  heal:
+    description: Heilt einen sterbenden Spieler als Hexe.
+    usage: /heal
