@@ -12,10 +12,6 @@ public class main extends JavaPlugin {
 
 	public static JDA api;
 
-	public static void main(String[] args) {
-
-	}
-
 	@Override
 	public void onEnable() {
 		logMessage("MC-Werewolf wurde geladen");
@@ -35,7 +31,7 @@ public class main extends JavaPlugin {
 	}
 
 	public void discordConnection() throws LoginException {
-		api = new JDABuilder("NDAwNTgyNzA5ODQ5NjIwNTAw.XhshVQ.djYCZzvb_ib7KacKrgxQLlUuzw0")
+		api = new JDABuilder("")
 				.build();
 		api.addEventListener(new eventsDiscord());
 		logMessage("Discord wurde über Minecraft connected");
