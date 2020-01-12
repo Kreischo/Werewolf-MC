@@ -16,7 +16,7 @@ public class main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		System.out.println("MC-Werewolf wurde geladen");
+		getLogger().info("MC-Werewolf wurde geladen");
 		getServer().getPluginManager().registerEvents(new eventsMinecraft(), this);
 		try {
 			discordConnection();
@@ -27,7 +27,7 @@ public class main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		System.out.println("MC-Werewolf wurde gestoppt");
+		getLogger().info("MC-Werewolf wurde gestoppt");
 	}
 
 	public void discordConnection() throws LoginException {
