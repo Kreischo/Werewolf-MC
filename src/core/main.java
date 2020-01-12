@@ -1,5 +1,7 @@
 package core;
 
+import commands.create;
+import commands.verify;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,8 +18,10 @@ public class main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		getLogger().info("MC-Werewolf wurde geladen");
+		logMessage("MC-Werewolf wurde geladen");
 		getServer().getPluginManager().registerEvents(new eventsMinecraft(), this);
+		this.getCommand("create").setExecutor(new create());
+		this.getCommand("verify").setExecutor(new verify());
 		try {
 			discordConnection();
 		} catch (LoginException e) {
@@ -27,13 +31,17 @@ public class main extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		getLogger().info("MC-Werewolf wurde gestoppt");
+		logMessage("MC-Werewolf wurde gestoppt");
 	}
 
 	public void discordConnection() throws LoginException {
-		api = new JDABuilder("")
+		api = new JDABuilder("NDAwNTgyNzA5ODQ5NjIwNTAw.XhshVQ.djYCZzvb_ib7KacKrgxQLlUuzw0")
 				.build();
 		api.addEventListener(new eventsDiscord());
-		getLogger().info("Discord wurde über Minecraft connected");
+		logMessage("Discord wurde über Minecraft connected");
+	}
+
+	public void logMessage(String Message)    {
+		getLogger().info(Message);
 	}
 }
