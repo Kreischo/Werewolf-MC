@@ -16,7 +16,7 @@ public class eventsMinecraft implements Listener {
 		return true;
 	}
 
-	@Override
+	@EventHandler
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)    {
 
 		return true;
