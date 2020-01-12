@@ -14,6 +14,7 @@ public class main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		System.out.println("MC-Werewolf wurde geladen");
+		getServer().getPluginManager().registerEvents(new eventsMinecraft(), this);
 		try {
 			disCon();
 		} catch (LoginException e) {
@@ -26,8 +27,11 @@ public class main extends JavaPlugin {
 		System.out.println("MC-Werewolf wurde gestoppt");
 	}
 
+	public static JDA api;
+
 	public void disCon() throws LoginException {
-		JDA api = new JDABuilder("NDAwNTgyNzA5ODQ5NjIwNTAw.Xhrf0A.N7lKugfoHNnhhx6-SXDCB6gJG7I")
+
+		api = new JDABuilder("")
 				.build();
 		api.addEventListener(new eventsDiscord());
 		System.out.println("Discord wurde über Minecraft connected!");
