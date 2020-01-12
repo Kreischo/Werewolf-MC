@@ -7,6 +7,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import javax.security.auth.login.LoginException;
 
 public class main extends JavaPlugin {
+
+	public static JDA api;
+
 	public static void main(String[] args) {
 
 	}
@@ -16,7 +19,7 @@ public class main extends JavaPlugin {
 		System.out.println("MC-Werewolf wurde geladen");
 		getServer().getPluginManager().registerEvents(new eventsMinecraft(), this);
 		try {
-			disCon();
+			discordConnection();
 		} catch (LoginException e) {
 			e.printStackTrace();
 		}
@@ -27,13 +30,10 @@ public class main extends JavaPlugin {
 		System.out.println("MC-Werewolf wurde gestoppt");
 	}
 
-	public static JDA api;
-
-	public void disCon() throws LoginException {
-
+	public void discordConnection() throws LoginException {
 		api = new JDABuilder("")
 				.build();
 		api.addEventListener(new eventsDiscord());
-		System.out.println("Discord wurde über Minecraft connected!");
+		getLogger().info("Discord wurde über Minecraft connected");
 	}
 }

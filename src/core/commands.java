@@ -10,7 +10,7 @@ public class commands extends JavaPlugin {
 	}
 
 	public static void writeDC(String Message) {
-
+		main.api.getTextChannelById("475433172998291456").sendMessage(Message).queue();
 	}
 
 }
